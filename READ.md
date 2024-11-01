@@ -37,4 +37,11 @@
     brew install allure
     #Activate Your Virtual Environment 
     source venv/bin/activate
-    pytest --alluredir=allure-results
+    pytest --alluredir=..allure-results
+
+Cmd+Click to Navigate to Class/Method
+Cmd + / Comment/Uncomment
+Cmd+ Shift +/ Block
+### find command to locate and delete all __pycache__ directories
+    find . -type d -name "__pycache__" -exec rm -r {} +
+

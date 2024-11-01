@@ -2,3 +2,4 @@
 .idea/
 venv
 __pycahe__/
+allure-results/
