@@ -1,0 +1,47 @@
+name: Python Selenium Tests
+
+on:
+  workflow_dispatch: # Manually trigger this workflow
+
+jobs:
+  test:
+    runs-on: ubuntu-latest # Use the latest version of Ubuntu
+
+    steps:
+      # Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x' # Replace with your desired Python version (e.g., '3.9')
+
+      # Install dependencies from requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Install Chrome browser
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      # Run Selenium tests
+      - name: Run Selenium tests
+        env:
+          DISPLAY: ":99" # Necessary for headless mode
+        run: |
+          # Run your test command here, e.g.:
+          pytest --browser chrome --headless # Add `--headless` to run without UI
+
+      # Upload any test results or screenshots if tests fail
+      - name: Upload screenshots (if tests fail)
+        if: failure() # Only run if tests fail
+        uses: actions/upload-artifact@v3
+        with:
+          name: selenium-screenshots # Name for the uploaded artifact
+          path: ./screenshots # Replace with your screenshots directory if used
