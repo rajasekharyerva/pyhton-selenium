@@ -45,5 +45,10 @@ Cmd+ Shift +/ Block
 ### find command to locate and delete all __pycache__ directories
     find . -type d -name "__pycache__" -exec rm -r {} +
     git rm -r --cached **/__pycache__
+    find . -type d -name "__pycache__" -exec git rm -r --cached {} +
+    git ls-files | grep "__pycache__"
+    find . -type d -name "__pycache__" -print0 | xargs -0 git rm -r --cached
+    git rm --cached pages/__pycache__/* tests/__pycache__/*
+
 
 
