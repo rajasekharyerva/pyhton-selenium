@@ -7,12 +7,16 @@ from selenium.webdriver.chrome.options import Options
 @pytest.fixture
 def browser():
     options = Options()
-    options.add_argument("--headless")
-    options.add_argument("--disable-gpu")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
+    # Basic options first
+    options.add_argument("--headless")                   # Run in headless mode
+    # Performance-related options
+    options.add_argument("--disable-gpu")                # Disable GPU acceleration
+    options.add_argument("--disable-dev-shm-usage")     # Overcome limited resource problems
+    # Sandbox options last
+    options.add_argument("--no-sandbox")                 # Disable the sandbox for testing
 
-    # Initialize the Chrome driver
+
+# Initialize the Chrome driver
     driver = webdriver.Chrome(options=options)
     yield driver
     driver.quit()
