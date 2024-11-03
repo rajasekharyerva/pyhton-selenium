@@ -13,7 +13,6 @@ def browser():
 
     # Initialize the Chrome driver
     driver = webdriver.Chrome(options=options)
-    driver = webdriver.Chrome()
     yield driver
     driver.quit()
 

@@ -44,4 +44,6 @@ Cmd + / Comment/Uncomment
 Cmd+ Shift +/ Block
 ### find command to locate and delete all __pycache__ directories
     find . -type d -name "__pycache__" -exec rm -r {} +
+    git rm -r --cached **/__pycache__
+
 

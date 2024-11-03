@@ -1,5 +1,5 @@
 # created by virtualenv automatically
 .idea/
 venv
-__pycahe__/
 allure-results/
+__pycache__
