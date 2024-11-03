@@ -36,7 +36,7 @@ jobs:
           DISPLAY: ":99" # Necessary for headless mode
         run: |
           # Run your test command here, e.g.:
-          pytest --headless # Add `--headless` to run without UI
+          pytest
 
       # Upload any test results or screenshots if tests fail
       - name: Upload screenshots (if tests fail)
