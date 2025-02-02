@@ -2,8 +2,8 @@ name: Python Selenium Tests
 
 on:
   workflow_dispatch: # Allows manual triggering
-  schedule:
-    - cron: '30 23 * * *'  # Run daily at 11:30 PM UTC (5 AM IST)
+  # schedule:
+    # - cron: '30 23 * * *'  # Run daily at 11:30 PM UTC (5 AM IST)
 
 jobs:
   test:
